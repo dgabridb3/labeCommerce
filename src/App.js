@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import './App.css';
+import Filter from './Components/Filter'
 
 
 const ConteinerPrincipal = styled.div`
@@ -24,7 +25,9 @@ class App extends React.Component {
      
      
     <Div><p>Olá filtro</p> 
-    {/* {Filtro}  */}</Div>  
+    <Filter/>
+    
+    </Div>  
 
     <Div><p>Olá post</p> 
     {/* {Posts}   */}</Div>  
