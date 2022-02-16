@@ -9,7 +9,8 @@ display: grid;
 grid-template-columns: 1fr 3fr 1fr;
 background-color: blueviolet;
 color: white;
-padding-bottom: 20px
+padding-bottom: 8vh;
+padding-top: 8vh;
 `
 
 const Div = styled.div`
@@ -23,6 +24,7 @@ const Div1 = styled.div`
 display:flex;
 align-items: center;
 justify-content: space-between;
+/* height: 30%; */
 `
 const CardSection = styled.div `
     display: grid;
@@ -39,11 +41,11 @@ const CardFilho = styled.div `
 
 display: flex;
 flex-direction: column;
-margin: 0 5px
+margin: 0 5px;
 `
 const IMG = styled.img `
 width: 100%;
-height: 200px
+height: 200px;
 `
 const H4 = styled.h4 `
 margin: 10px 0;
@@ -59,7 +61,7 @@ class App extends React.Component {
     id: 1,
     name: "Foguete da Missão Apollo 11",
     value: 10000.0,
-    imageUrl: "https://picsum.photos/200/200",
+    imageUrl: "https://picsum.photos/200/200"
   }
   render() {
     return (
@@ -97,7 +99,23 @@ class App extends React.Component {
       <IMG src={this.state.imageUrl} alt="" />
       <CardFilho>
              <H4>{this.state.name}</H4>
-             <P>R${this.state.value}</P>
+             <P>R$ 5.000,00</P>
+             <button>Adicionar ao Carrinho</button>
+         </CardFilho>
+      </Card>
+      <Card>
+      <IMG src={this.state.imageUrl} alt="" />
+      <CardFilho>
+             <H4>{this.state.name}</H4>
+             <P>R$200,00</P>
+             <button>Adicionar ao Carrinho</button>
+         </CardFilho>
+      </Card>
+      <Card>
+      <IMG src={this.state.imageUrl} alt="" />
+      <CardFilho>
+             <H4>{this.state.name}</H4>
+             <P>R$350,00</P>
              <button>Adicionar ao Carrinho</button>
          </CardFilho>
       </Card>
@@ -109,22 +127,7 @@ class App extends React.Component {
              <button>Adicionar ao Carrinho</button>
          </CardFilho>
       </Card>
-      <Card>
-      <IMG src={this.state.imageUrl} alt="" />
-      <CardFilho>
-             <H4>{this.state.name}</H4>
-             <P>R${this.state.value}</P>
-             <button>Adicionar ao Carrinho</button>
-         </CardFilho>
-      </Card>
-      <Card>
-      <IMG src={this.state.imageUrl} alt="" />
-      <CardFilho>
-             <H4>{this.state.name}</H4>
-             <P>R${this.state.value}</P>
-             <button>Adicionar ao Carrinho</button>
-         </CardFilho>
-      </Card>
+    
     </CardSection>
      
     </Div>  
