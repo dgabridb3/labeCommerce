@@ -16,6 +16,7 @@ border: 1px solid white;
 margin: 3px;
 `
 
+
 /* inicio estilização card */
 const Div1 = styled.div`
 display:flex;
@@ -50,6 +51,8 @@ const P = styled.p `
 margin: 5px 0;
 `
 /* fim estilização card */
+
+
 class App extends React.Component {
    state = {
     id: 1,
