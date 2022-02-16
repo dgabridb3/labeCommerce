@@ -6,6 +6,14 @@ import './App.css';
 const ConteinerPrincipal = styled.div`
 display: grid;
 grid-template-columns: 1fr 3fr 1fr;
+background-color: blueviolet;
+color: white;
+height: 100vh;
+`
+
+const Div = styled.div`
+border: 1px solid white;
+margin: 3px;
 `
 
 class App extends React.Component {
@@ -15,7 +23,14 @@ class App extends React.Component {
       <ConteinerPrincipal>
      
      
-    {/* {filtro}{posts}{Carrinho} */}
+    <Div><p>Olá filtro</p> 
+    {/* {Filtro}  */}</Div>  
+
+    <Div><p>Olá post</p> 
+    {/* {Posts}   */}</Div>  
+
+   <Div> <p>Olá carrinho</p>  
+    {/* {Carrinho} */}</Div>
      
       </ConteinerPrincipal>
        );
