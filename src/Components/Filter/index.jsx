@@ -2,30 +2,6 @@ import React from 'react';
 
 export default function Filter(props) {
 
-    // state = {
-    //     valorMin:"",
-    //     valorMax:"",
-    //     PesquisaNome:""
-    // }
-
-    // inputMin = (ev) =>{
-    //     props.setState({
-    //         valorMin: ev.target.value
-    //     })
-    // }
-
-    // inputMax = (ev) =>{
-    //     props.setState({
-    //         valorMax: ev.target.value
-    //     })
-    // }
-
-    // inputPesquisaNome = (ev) =>{
-    //     props.setState({
-    //         PesquisaNome: ev.target.value
-    //     })
-    // }
-
         return(
             <div>
                 <div>
