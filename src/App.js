@@ -138,15 +138,15 @@ order= (ev) =>{
     <Div> 
     <Div1>
       <p>Quantidade de produtos: {}</p>
-      <div> 
-         <label>Ordenção:</label>
-         <select>
-             <option value="crescente"
+         <div> 
+           <label>Ordenção:</label>
+              <select>
+                <option value="crescente"
                      onChange={this.order}>Crescente</option>
-             <option value="decrescente"
+                <option value="decrescente"
                      onChange={this.order}>Decrescente</option>
-         </select>
-      </div>  
+             </select>
+        </div>  
     </Div1>
       
     <CardSection>
@@ -172,61 +172,20 @@ order= (ev) =>{
        })
         .map((product)=>{
           return(
-            <div>
+       
             <Card>
-         <IMG src={product.imageUrl} alt="" />
-         <CardFilho>
-             <H4>{product.name}</H4>
-             <P>R${product.value}</P>
-             <button>Adicionar ao Carrinho</button>
-         </CardFilho>
-       </Card >
-        </div>
+               <IMG src={product.imageUrl} alt="" />
+                 <CardFilho>
+                   <H4>{product.name}</H4>
+                   <P>R${product.value}</P>
+                   <button>Adicionar ao Carrinho</button>
+                </CardFilho>
+           </Card >
+     
           )
         })}
     
-      {/* <Card>
-         <IMG src={this.state.imageUrl} alt="" />
-         <CardFilho>
-             <H4>{this.state.name}</H4>
-             <P>R${this.state.value}</P>
-             <button>Adicionar ao Carrinho</button>
-         </CardFilho>
-      </Card>
-    
-      <Card>
-      <IMG src={this.state.imageUrl} alt="" />
-      <CardFilho>
-             <H4>{this.state.name}</H4>
-             <P>R$ 5.000,00</P>
-             <button>Adicionar ao Carrinho</button>
-         </CardFilho>
-      </Card>
-      <Card>
-      <IMG src={this.state.imageUrl} alt="" />
-      <CardFilho>
-             <H4>{this.state.name}</H4>
-             <P>R$200,00</P>
-             <button>Adicionar ao Carrinho</button>
-         </CardFilho>
-      </Card>
-      <Card>
-      <IMG src={this.state.imageUrl} alt="" />
-      <CardFilho>
-             <H4>{this.state.name}</H4>
-             <P>R$350,00</P>
-             <button>Adicionar ao Carrinho</button>
-         </CardFilho>
-      </Card>
-      <Card>
-      <IMG src={this.state.imageUrl} alt="" />
-      <CardFilho>
-             <H4>{this.state.name}</H4>
-             <P>R${this.state.value}</P>
-             <button>Adicionar ao Carrinho</button>
-         </CardFilho>
-       
-      </Card> */}
+  
       
     </CardSection>
     
