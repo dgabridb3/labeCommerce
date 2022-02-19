@@ -10,13 +10,14 @@ display: grid;
 grid-template-columns: 1fr 3fr 1fr;
 background-color: blueviolet;
 color: white;
-padding-bottom: 8vh;
-padding-top: 8vh;
+padding:3px;
+height: 100vh;
+column-gap: 0.5%;
 `
 
 const Div = styled.div`
 border: 1px solid white;
-margin: 3px;
+padding:2%;
 `
 
 
@@ -59,19 +60,19 @@ margin: 5px 0;
 const produtos = [
   {
     id: 1,
-    name: "Foguete da Missão Apollo 11",
+    name: "Foguete da mt020",
     value: 10000.0,
     imageUrl: "https://picsum.photos/200/280",
   },
   {
     id: 2,
-    name: "Avião da Missão Apollo 11",
+    name: "Avião da T1000",
     value: 500.0,
     imageUrl: "https://picsum.photos/200/250",
   },
   {
     id: 3,
-    name: "Foguete da Missão Apollo 11",
+    name: "Foguete da z33",
     value: 100.0,
     imageUrl: "https://picsum.photos/200/201",
   },
