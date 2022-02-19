@@ -4,6 +4,7 @@ import './App.css';
 import Filter from './Components/Filter'
 
 
+
 const ConteinerPrincipal = styled.div`
 display: grid;
 grid-template-columns: 1fr 3fr 1fr;
@@ -55,22 +56,78 @@ margin: 5px 0;
 `
 /* fim estilização card */
 
-
-class App extends React.Component {
-   state = {
+const produtos = [
+  {
     id: 1,
     name: "Foguete da Missão Apollo 11",
     value: 10000.0,
-    imageUrl: "https://picsum.photos/200/200"
+    imageUrl: "https://picsum.photos/200/280",
+  },
+  {
+    id: 2,
+    name: "Foguete da Missão Apollo 11",
+    value: 500.0,
+    imageUrl: "https://picsum.photos/200/250",
+  },
+  {
+    id: 3,
+    name: "Foguete da Missão Apollo 11",
+    value: 100.0,
+    imageUrl: "https://picsum.photos/200/201",
+  },
+  {
+    id: 4,
+    name: "Foguete da Missão Apollo 11",
+    value: 50.0,
+    imageUrl: "https://picsum.photos/200/220",
+  },
+
+];
+
+ somaDeProdutos = () => {
+    const 
+ }
+
+class App extends React.Component {
+   state = {
+     products: produtos,
+     valorMin:"",
+     valorMax:"",
+     PesquisaNome:""
   }
+
+  inputMin = (ev) =>{
+    this.setState({
+        valorMin: ev.target.value
+    })
+}
+
+inputMax = (ev) =>{
+    this.setState({
+        valorMax: ev.target.value
+    })
+}
+
+inputPesquisaNome = (ev) =>{
+    this.setState({
+        PesquisaNome: ev.target.value
+    })
+}
+
   render() {
     return (
       <ConteinerPrincipal>
-     
-     
     <Div><p>Olá filtro</p> 
-    <Filter/>
-    
+    {this.state.valorMax}
+    <Filter
+    valorMin={this.state.valorMin}
+    valorMax={this.state.valorMax}
+    PesquisaNome={this.state.PesquisaNome}
+    inputMin={this.inputMin}
+    inputMax={this.inputMax}
+    inputPesquisaNome={this.inputPesquisaNome}
+    />
+ 
     </Div>  
 
     <Div> 
@@ -86,7 +143,31 @@ class App extends React.Component {
     </Div1>
       
     <CardSection>
-      <Card>
+    
+        {this.state.products.map((product)=>{
+          return(
+            // <CardFilho>
+             
+            //  <H4>{product.name}</H4>
+            //   <IMG src={product.imageUrl}/>
+            //   <H4>{product.value}</H4>
+            // </CardFilho>
+            <div>
+
+            
+            <Card>
+         <IMG src={product.imageUrl} alt="" />
+         <CardFilho>
+             <H4>{product.name}</H4>
+             <P>R${product.value}</P>
+             <button>Adicionar ao Carrinho</button>
+         </CardFilho>
+       </Card >
+        </div>
+          )
+        })}
+    
+      {/* <Card>
          <IMG src={this.state.imageUrl} alt="" />
          <CardFilho>
              <H4>{this.state.name}</H4>
@@ -126,15 +207,16 @@ class App extends React.Component {
              <P>R${this.state.value}</P>
              <button>Adicionar ao Carrinho</button>
          </CardFilho>
-      </Card>
-    
+       
+      </Card> */}
+      
     </CardSection>
-     
+    
     </Div>  
 
    <Div> <p>Olá carrinho</p>  
     {/* {Carrinho} */}</Div>
-     
+  
       </ConteinerPrincipal>
        );
      }
