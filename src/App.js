@@ -65,7 +65,7 @@ const produtos = [
   },
   {
     id: 2,
-    name: "Foguete da Missão Apollo 11",
+    name: "Avião da Missão Apollo 11",
     value: 500.0,
     imageUrl: "https://picsum.photos/200/250",
   },
@@ -84,16 +84,15 @@ const produtos = [
 
 ];
 
- somaDeProdutos = () => {
-    const 
- }
+ 
 
 class App extends React.Component {
    state = {
      products: produtos,
      valorMin:"",
      valorMax:"",
-     PesquisaNome:""
+     PesquisaNome:"",
+     ordem: "crescente"
   }
 
   inputMin = (ev) =>{
@@ -111,6 +110,12 @@ inputMax = (ev) =>{
 inputPesquisaNome = (ev) =>{
     this.setState({
         PesquisaNome: ev.target.value
+    })
+}
+
+order= (ev) =>{
+    this.setState({
+        ordem: ev.target.value
     })
 }
 
@@ -136,25 +141,38 @@ inputPesquisaNome = (ev) =>{
       <div> 
          <label>Ordenção:</label>
          <select>
-             <option value="crescente">Crescente</option>
-             <option value="decrescente">Decrescente</option>
+             <option value="crescente"
+                     onChange={this.order}>Crescente</option>
+             <option value="decrescente"
+                     onChange={this.order}>Decrescente</option>
          </select>
       </div>  
     </Div1>
       
     <CardSection>
     
-        {this.state.products.map((product)=>{
+        {this.state.products
+        .filter( (product) =>{
+          return this.state.valorMin === "" || product.value >= this.state.valorMin
+        })
+        .filter( (product) =>{
+          return this.state.valorMax === "" || product.value <= this.state.valorMax
+        })
+       .filter( (product) =>{
+         return product.name.toLowerCase().includes(this.state.PesquisaNome.toLowerCase());
+       })
+       .sort ((a, b) =>{
+         switch (this.state.ordem){
+           case "crescente":
+                return a.name.localeCompare(b.name)
+          
+            case "decrescente":
+              return b.name.localeCompare(a.name)
+         }
+       })
+        .map((product)=>{
           return(
-            // <CardFilho>
-             
-            //  <H4>{product.name}</H4>
-            //   <IMG src={product.imageUrl}/>
-            //   <H4>{product.value}</H4>
-            // </CardFilho>
             <div>
-
-            
             <Card>
          <IMG src={product.imageUrl} alt="" />
          <CardFilho>
