@@ -1,32 +1,30 @@
 import React from 'react';
 
-export default class Filter extends React.Component{
+export default function Filter(props) {
 
-    state = {
-        valorMin:"",
-        valorMax:"",
-        PesquisaNome:""
-    }
+    // state = {
+    //     valorMin:"",
+    //     valorMax:"",
+    //     PesquisaNome:""
+    // }
 
-    inputMin = (ev) =>{
-        this.setState({
-            valorMin: ev.target.value
-        })
-    }
+    // inputMin = (ev) =>{
+    //     props.setState({
+    //         valorMin: ev.target.value
+    //     })
+    // }
 
-    inputMax = (ev) =>{
-        this.setState({
-            valorMax: ev.target.value
-        })
-    }
+    // inputMax = (ev) =>{
+    //     props.setState({
+    //         valorMax: ev.target.value
+    //     })
+    // }
 
-    inputPesquisaNome = (ev) =>{
-        this.setState({
-            PesquisaNome: ev.target.value
-        })
-    }
-
-    render(){
+    // inputPesquisaNome = (ev) =>{
+    //     props.setState({
+    //         PesquisaNome: ev.target.value
+    //     })
+    // }
 
         return(
             <div>
@@ -34,29 +32,27 @@ export default class Filter extends React.Component{
                 <p>Valor mínimo:</p>
                 <input 
                 type="number"
-                value={this.state.valorMin}
-                placeholder="Valor mínimo"
-                onChange={this.inputMin}
+                value={props.valorMin}
+                 placeholder={"Valor mínimo"}
+                onChange={props.inputMin}
                 />
 
                 <p>Valor maximo</p>
                 <input 
                 type="number"
-                value={this.state.valorMax}
+                value={props.valorMax}
                 placeholder="Valor maximo"
-                onChange={this.inputMax}
+                onChange={props.inputMax}
                 />
 
                 <p>Pesquisa por nome:</p>
                 <input 
-                value={this.state.PesquisaNome}
+                value={props.PesquisaNome}
                 placeholder="Pesquisa"
-                onChange={this.inputPesquisaNome}
+                onChange={props.inputPesquisaNome}
                 />
                 </div>
                 
-
             </div>
         )
     }
-}
