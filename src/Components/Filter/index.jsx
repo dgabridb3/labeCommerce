@@ -4,7 +4,7 @@ export default function Filter(props) {
 
         return(
             <div>
-                <div>
+                <div >
                 <p>Valor mínimo:</p>
                 <input 
                 type="number"
