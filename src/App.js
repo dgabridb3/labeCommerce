@@ -53,70 +53,94 @@ const P = styled.p`
 `;
 /* fim estilização card */
 
-const produtos = [
-  {
-    id: 1,
-    name: "Foguete da mt020",
-    value: 10000.0,
-    imageUrl: "https://picsum.photos/200/280",
-  },
-  {
-    id: 2,
-    name: "Avião da T1000",
-    value: 500.0,
-    imageUrl: "https://picsum.photos/200/250",
-  },
-  {
-    id: 3,
-    name: "Foguete da z33",
-    value: 100.0,
-    imageUrl: "https://picsum.photos/200/201",
-  },
-  {
-    id: 4,
-    name: "Foguete da Missão Apollo 11",
-    value: 50.0,
-    imageUrl: "https://picsum.photos/200/220",
-  },
-];
+// const produtos = [
+//   {
+//     id: 1,
+//     name: "Foguete da mt020",
+//     value: 10000.0,
+//     imageUrl: "https://picsum.photos/200/280",
+//   },
+//   {
+//     id: 2,
+//     name: "Avião da T1000",
+//     value: 500.0,
+//     imageUrl: "https://picsum.photos/200/250",
+//   },
+//   {
+//     id: 3,
+//     name: "Foguete da z33",
+//     value: 100.0,
+//     imageUrl: "https://picsum.photos/200/201",
+//   },
+//   {
+//     id: 4,
+//     name: "Foguete da Missão Apollo 11",
+//     value: 50.0,
+//     imageUrl: "https://picsum.photos/200/220",
+//   },
+// ];
 
 class App extends React.Component {
   state = {
-    products: produtos,
+    products: [{
+      id: 1,
+      name: "Foguete da mt020",
+      value: 10000.0,
+      imageUrl: "https://picsum.photos/200/280",
+    },
+    {
+      id: 2,
+      name: "Avião da T1000",
+      value: 500.0,
+      imageUrl: "https://picsum.photos/200/250",
+    },
+    {
+      id: 3,
+      name: "Foguete da z33",
+      value: 100.0,
+      imageUrl: "https://picsum.photos/200/201",
+    },
+    {
+      id: 4,
+      name: "Foguete da Missão Apollo 11",
+      value: 50.0,
+      imageUrl: "https://picsum.photos/200/220",
+
+    }],
     valorMin: "",
     valorMax: "",
     PesquisaNome: "",
     ordem: 1,
-
     listaDeProduto: []
   };
 
+  addProductInCar = (productId) => {  
 
-  addProductInCar = (productId) => {
-    const produtoCar = this.state.listaDeProduto.find(
-      (product) => productId === product.id
-    );
+    const produtoCar = this.state.listaDeProduto.find(product => productId === product.id)
     if (produtoCar) {
-      const novoProductInCar = this.state.listaDeProduto.map((product) => {
+      const novoProductInCar = this.state.listaDeProduto.map(product => {
         if (productId === product.id) {
-          return {
+
+          return ({
             ...product,
-            quantidade: this.state.quantidade + 1
-          };
+            quantidade: product.quantidade + 1
+            
+          });
+          
         }
         
         return product;
       });
+      
       this.setState({ listaDeProduto: novoProductInCar });
+
     } else {
-      const produtoAdd = this.state.products.find(
-        (product) => productId === product.id
-      );
+      const produtoAdd = this.state.products.find(product => productId === product.id)
       const novoProdutoInCart = [
         ...this.state.listaDeProduto,
-        { ...produtoAdd, quantidade: 1},
+        { ...produtoAdd, quantidade: 1}
       ];
-      this.setState({ listaDeProduto: novoProdutoInCart });
+     this.setState({ listaDeProduto: novoProdutoInCart});
       
     }
    
@@ -187,7 +211,6 @@ class App extends React.Component {
       .map((product) => {
         return (
           <Card>
-
             <IMG src={product.imageUrl}  alt="" />
             <CardFilho key={product.id}>
               <H4>{product.name}</H4>
