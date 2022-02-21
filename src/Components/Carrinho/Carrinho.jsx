@@ -15,9 +15,10 @@ class Carrinho extends React.Component{
             <>
             <h3>Carrinho: </h3>
             {this.props.listaDeProdutos.map((product)=>{
+
                     return  <ItemCar itemCar={product} remove={this.props.removeProduto} />
                 })}
-            <p>Valor Total: R${this.valueTotal()},00</p>
+            <p>Valor Total: R$ {this.valueTotal()},00</p>
             </>
         )
     }

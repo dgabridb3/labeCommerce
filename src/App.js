@@ -53,60 +53,36 @@ const P = styled.p`
 `;
 /* fim estilização card */
 
-// const produtos = [
-//   {
-//     id: 1,
-//     name: "Foguete da mt020",
-//     value: 10000.0,
-//     imageUrl: "https://picsum.photos/200/280",
-//   },
-//   {
-//     id: 2,
-//     name: "Avião da T1000",
-//     value: 500.0,
-//     imageUrl: "https://picsum.photos/200/250",
-//   },
-//   {
-//     id: 3,
-//     name: "Foguete da z33",
-//     value: 100.0,
-//     imageUrl: "https://picsum.photos/200/201",
-//   },
-//   {
-//     id: 4,
-//     name: "Foguete da Missão Apollo 11",
-//     value: 50.0,
-//     imageUrl: "https://picsum.photos/200/220",
-//   },
-// ];
+const produtos = [
+  {
+    id: 1,
+    name: "Foguete da mt020",
+    value: 10000.0,
+    imageUrl: "https://picsum.photos/200/280",
+  },
+  {
+    id: 2,
+    name: "Avião da T1000",
+    value: 500.0,
+    imageUrl: "https://picsum.photos/200/250",
+  },
+  {
+    id: 3,
+    name: "Foguete da z33",
+    value: 100.0,
+    imageUrl: "https://picsum.photos/200/201",
+  },
+  {
+    id: 4,
+    name: "Foguete da Missão Apollo 11",
+    value: 50.0,
+    imageUrl: "https://picsum.photos/200/220",
+  },
+];
 
 class App extends React.Component {
   state = {
-    products: [{
-      id: 1,
-      name: "Foguete da mt020",
-      value: 10000.0,
-      imageUrl: "https://picsum.photos/200/280",
-    },
-    {
-      id: 2,
-      name: "Avião da T1000",
-      value: 500.0,
-      imageUrl: "https://picsum.photos/200/250",
-    },
-    {
-      id: 3,
-      name: "Foguete da z33",
-      value: 100.0,
-      imageUrl: "https://picsum.photos/200/201",
-    },
-    {
-      id: 4,
-      name: "Foguete da Missão Apollo 11",
-      value: 50.0,
-      imageUrl: "https://picsum.photos/200/220",
-
-    }],
+    products: produtos,
     valorMin: "",
     valorMax: "",
     PesquisaNome: "",
@@ -126,7 +102,6 @@ class App extends React.Component {
             quantidade: product.quantidade + 1
             
           });
-          
         }
         
         return product;
@@ -136,10 +111,10 @@ class App extends React.Component {
 
     } else {
       const produtoAdd = this.state.products.find(product => productId === product.id)
-      const novoProdutoInCart = [
-        ...this.state.listaDeProduto,
-        { ...produtoAdd, quantidade: 1}
-      ];
+         const novoProdutoInCart = [
+            ...this.state.listaDeProduto,
+             { ...produtoAdd, quantidade: 1}
+          ];
      this.setState({ listaDeProduto: novoProdutoInCart});
       
     }
@@ -212,13 +187,13 @@ class App extends React.Component {
         return (
           <Card>
             <IMG src={product.imageUrl}  alt="" />
-            <CardFilho key={product.id}>
-              <H4>{product.name}</H4>
-              <P>R${product.value}</P>
-              <button onClick={() => this.addProductInCar(product.id)}>
+               <CardFilho key={product.id}>
+                  <H4>{product.name}</H4>
+                  <P>R$ {product.value},00</P>
+                  <button onClick={() => this.addProductInCar(product.id)}>
                 Adicionar ao Carrinho
-              </button>
-            </CardFilho>
+                 </button>
+             </CardFilho>
           </Card>
         );
       });
@@ -227,7 +202,7 @@ class App extends React.Component {
       <ConteinerPrincipal>
         <Div>
           <p>Olá filtro</p>
-          {this.state.valorMax}
+         
           <Filter
             valorMin={this.state.valorMin}
             valorMax={this.state.valorMax}
@@ -240,7 +215,7 @@ class App extends React.Component {
 
         <Div>
           <Div1>
-            <p>Quantidade de produtos: {listaDeProdutos.length}</p>
+            <p>Quantidade de produtos disponíveis : {listaDeProdutos.length} </p>
             <div>
               <label>Ordenção:</label>
               <select
@@ -263,13 +238,13 @@ class App extends React.Component {
 
         <Div>
           <Carrinho
-             key={listaDeProdutos.id}
-            produto={this.state.products}
-            listaDeProdutos={this.state.listaDeProduto}
-            removeProduto={this.removeProduto}
+            //  key={listaDeProdutos.id}
+            //  produto={this.state.products}
+             listaDeProdutos={this.state.listaDeProduto}
+             removeProduto={this.removeProduto}
            
           />
-           
+      
         </Div>
       </ConteinerPrincipal>
     );
